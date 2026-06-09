@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equipment Failure Analysis - Summary Report</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+        
+        .contact-info {
+            margin-top: 25px;
+            font-size: 0.95em;
+            opacity: 0.95;
+            border-top: 1px solid rgba(255, 255, 255, 0.3);
+            padding-top: 15px;
+        }
+        
+        .contact-info p {
+            margin: 5px 0;
+        }
+        
+        .contact-info a {
+            color: #fff;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+            transition: border-color 0.3s;
+        }
+        
+        .contact-info a:hover {
+            border-bottom-color: rgba(255, 255, 255, 1);
+        }
+        
+        .content {
+            padding: 40px 30px;
+        }
+        
+        .section {
+            margin-bottom: 35px;
+        }
+        
+        .section h2 {
+            color: #667eea;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+            display: inline-block;
+        }
+        
+        .section p {
+            text-align: justify;
+            margin-bottom: 12px;
+            font-size: 1em;
+            line-height: 1.8;
+        }
+        
+        .highlight {
+            background: #f0f4ff;
+            padding: 15px;
+            border-left: 4px solid #667eea;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        
+        .key-point {
+            font-weight: 600;
+            color: #764ba2;
+        }
+        
+        ul {
+            margin-left: 25px;
+            margin-bottom: 15px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+            text-align: justify;
+        }
+        
+        footer {
+            background: #f8f9fa;
+            padding: 20px 30px;
+            text-align: center;
+            color: #666;
+            font-size: 0.9em;
+            border-top: 1px solid #e0e0e0;
+        }
+        
+        .summary-box {
+            background: #e8f0fe;
+            border: 1px solid #d2e3fc;
+            padding: 20px;
+            border-radius: 6px;
+            margin: 15px 0;
+        }
+        
+        .summary-box strong {
+            color: #1a73e8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Equipment Failure Analysis</h1>
+            <p>Comprehensive Data Analysis Report</p>
+            <div class="contact-info">
+                <p><strong>Name:</strong> Flavio_Gaspareto</p>
+                <p><strong>Email:</strong> <a href="mailto:flav.gaspareto@gmail.com">flav.gaspareto@gmail.com</a></p>
+                <p><strong>GitHub:</strong> <a href="https://github.com/FlavKaze/Test_AI_ML_Engineer" target="_blank">github.com/FlavKaze/Test_AI_ML_Engineer</a></p>
+            </div>
+        </header>
+        
+        <div class="content">
+            <div class="section">
+                <h2>Initial Setup</h2>
+                <p>This project analyzes operational data from industrial equipment contained in an Excel file. The monitored metrics include Temperature, Pressure, Vibration on three axes (X, Y, Z), and Frequency. The dataset also includes operational configuration information (Preset_1 and Preset_2) along with a binary failure indicator.</p>
+                <div class="highlight">
+                    The data structure provides a comprehensive view of equipment behavior under different operating conditions, allowing for identification of failure patterns and predictive modeling.
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>1. Overall Failure Frequency</h2>
+                <p>The equipment experienced a documented number of failure events throughout the analyzed period. This count serves as the baseline for understanding the proportion of anomalous events in the dataset. Knowing the failure rate is essential for assessing the balance of the dataset and understanding how often problematic behavior occurs in normal operations.</p>
+                <p>This baseline frequency helps in evaluating model performance and setting realistic expectations for failure prediction accuracy.</p>
+            </div>
+            
+            <div class="section">
+                <h2>2. Failure Patterns by Operating Configuration</h2>
+                <p>When data was grouped by operational configuration type, significant variations in failure rates emerged across different preset combinations. Certain configuration pairs demonstrated substantially higher failure counts than others.</p>
+                <div class="highlight">
+                    <strong class="key-point">Notable findings:</strong>
+                    <ul>
+                        <li>Configurations 1-5 and 3-5 exhibited the highest failure rates</li>
+                        <li>Configuration 3-4 operated without any recorded failures</li>
+                        <li>Equipment that failed consistently showed higher metric readings compared to normally operating equipment</li>
+                    </ul>
+                </div>
+                <p>This correlation suggests that elevated sensor readings across multiple parameters are strongly associated with equipment failure, providing an early warning opportunity.</p>
+            </div>
+            
+            <div class="section">
+                <h2>3. Correlation and Effect Size Analysis</h2>
+                <p>Correlation analysis using Pearson's method identified <span class="key-point">VibrationY as the strongest single indicator of failure</span>. Equipment with elevated VibrationY readings showed strong correlation with failure events. While other metrics also demonstrated relationship with failures, their correlation was notably weaker.</p>
+                <div class="summary-box">
+                    <strong>Effect Size Analysis (Cohen's d):</strong> The statistical distributions of measured parameters differed substantially between failed and non-failed equipment, confirming that these metrics genuinely distinguish between operational states rather than showing random variation.
+                </div>
+                <p>The rank order of metric importance by correlation strength provides guidance for focusing monitoring efforts and tuning alarm thresholds.</p>
+            </div>
+            
+            <div class="section">
+                <h2>4. Predictive Modeling</h2>
+                <p>Four different machine learning models were trained and evaluated: Logistic Regression, Random Forest, Support Vector Machine (SVM), and XGBoost. The dataset was split 75% for training and 25% for testing, with stratification applied to preserve class balance.</p>
+                <div class="highlight">
+                    <strong class="key-point">Model Performance Winner: Logistic Regression</strong>
+                    <p>Logistic Regression outperformed the other three models across key metrics including accuracy, recall, and ROC-AUC score. This is particularly significant because recall—the ability to identify failures that actually occur—is critical in failure prediction scenarios. Missing actual failures is more costly than occasional false alarms.</p>
+                </div>
+                <p>The success of a simpler model suggests that failure in this equipment follows relatively straightforward patterns that don't require complex non-linear modeling.</p>
+            </div>
+            
+            <div class="section">
+                <h2>5. Variable Importance</h2>
+                <p>By extracting coefficients from the Logistic Regression model, the relative importance of each input variable was quantified. <span class="key-point">Frequency emerged as the variable with the strongest influence on failure predictions</span>, with higher frequency values substantially increasing the predicted probability of failure.</p>
+                <div class="summary-box">
+                    <strong>Importance Ranking:</strong>
+                    <ol>
+                        <li>Frequency - strongest impact on predictions</li>
+                        <li>VibrationY - second strongest, aligning with correlation analysis</li>
+                        <li>Remaining metrics - lower but measurable influence</li>
+                    </ol>
+                </div>
+                <p>This ranking corroborates the correlation analysis findings and provides actionable guidance for which parameters deserve the most attention from operators.</p>
+            </div>
+            
+            <div class="section">
+                <h2>Key Takeaways</h2>
+                <p>The analysis reveals several important insights:</p>
+                <ul>
+                    <li><strong>Mode-Dependent Risk:</strong> Specific operating modes are inherently higher-risk, with configurations 1-5 and 3-5 showing elevated failure rates</li>
+                    <li><strong>Early Warning Signals:</strong> Elevated values in Frequency and VibrationY function as reliable early indicators of impending failure</li>
+                    <li><strong>Effective Simplicity:</strong> A straightforward Logistic Regression model successfully captures the underlying failure patterns and identifies the majority of failures in advance</li>
+                    <li><strong>Actionable Metrics:</strong> Focus monitoring and maintenance efforts on Frequency and VibrationY for maximum impact</li>
+                </ul>
+            </div>
+            
+        </div>
+        
+        <footer>
+            <p>Analysis Report Generated | Equipment Failure Prediction Project</p>
+            <p>Date: June 9, 2026</p>
+        </footer>
+    </div>
+</body>
+</html>
